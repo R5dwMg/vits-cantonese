@@ -1,12 +1,12 @@
-/NurseRobotTypeTcool/NurseRobotTypeTcool0.wav|元気でいますか。
-/NurseRobotTypeTcool/NurseRobotTypeTcool1.wav|大事な人はできましたか。
-/NurseRobotTypeTcool/NurseRobotTypeTcool2.wav|いつか夢は叶いますか。
-/NurseRobotTypeTcool/NurseRobotTypeTcool3.wav|この道の先で
-/NurseRobotTypeTcool/NurseRobotTypeTcool4.wav|覚えていますか
-/NurseRobotTypeTcool/NurseRobotTypeTcool5.wav|揺れる麦の穂 あの夕映え
-/NurseRobotTypeTcool/NurseRobotTypeTcool6.wav|地平線 続く空を探し続けていた
-/NurseRobotTypeTcool/NurseRobotTypeTcool7.wav|明日を描こうともがきながら
-/NurseRobotTypeTcool/NurseRobotTypeTcool8.wav|今夢の中へ
-/NurseRobotTypeTcool/NurseRobotTypeTcool9.wav|形ないものの輝きを
-/NurseRobotTypeTcool/NurseRobotTypeTcool10.wav|そっとそっと抱きしめて
-/NurseRobotTypeTcool/NurseRobotTypeTcool11.wav|進むの
+/content/vits-cantonese/NurseRobotTypeTcool/NurseRobotTypeTcool/NurseRobotTypeTcool0.wav|元気でいますか。
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool1.wav|大事な人はできましたか。
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool2.wav|いつか夢は叶いますか。
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool3.wav|この道の先で
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool4.wav|覚えていますか
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool5.wav|揺れる麦の穂 あの夕映え
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool6.wav|地平線 続く空を探し続けていた
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool7.wav|明日を描こうともがきながら
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool8.wav|今夢の中へ
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool9.wav|形ないものの輝きを
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool10.wav|そっとそっと抱きしめて
+/content/vits-cantonese//NurseRobotTypeTcool/NurseRobotTypeTcool11.wav|進むの
