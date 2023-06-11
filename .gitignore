@@ -15,3 +15,8 @@ configs/tolove_japanese_base2.json
 venv
 *.pth
 *.mp3
+*.wav
+.idea
+dataset_raw
+Strategy.md
+colab.ipynb
