@@ -3,9 +3,9 @@ import unicodedata
 import re
 
 s2t = opencc.OpenCC('s2t.json')
-hk2t = opencc.OpenCC('hk2t.json')
-t2tw = opencc.OpenCC('t2tw.json')
-s2hk = opencc.OpenCC('s2hk.json')
+# hk2t = opencc.OpenCC('hk2t.json')
+# t2tw = opencc.OpenCC('t2tw.json')
+# s2hk = opencc.OpenCC('s2hk.json')
 jp2t = opencc.OpenCC('jp2t.json')
 
 punctuation = "\'\",.:；–—-－?!．，、。‧·…⋯《》「」（）()/:︰：;！？﹖ ﹔~～／”“⠀"
