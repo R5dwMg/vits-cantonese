@@ -284,10 +284,11 @@ def resample_voice_clip(path_train: str, path_val: str):
     df_val = pd.read_table(path_val)
 
     # select common_voice and win narrator
-    df_train = df_train[(df_train["synthesizer"] == "common_voice") | (df_train["synthesizer"] == "win")]
-    df_val = df_val[(df_val["synthesizer"] == "common_voice") | (df_val["synthesizer"] == "win")]
+    # df_train = df_train[(df_train["synthesizer"] == "common_voice") | (df_train["synthesizer"] == "win")]
+    # df_val = df_val[(df_val["synthesizer"] == "common_voice") | (df_val["synthesizer"] == "win")]
 
-    input_folder = "dataset_raw/change/"
+    input_change_folder = "dataset_raw/change/"
+    input_voicevox_folder = "dataset_raw/supplement/voicevox"
     output_folder = "dataset_raw/resample"
 
     progress = tqdm(total=len(df_train) + len(df_val))
@@ -295,13 +296,15 @@ def resample_voice_clip(path_train: str, path_val: str):
     # select common voice clips
     # train
     for index, row in df_train.iterrows():
-        audio_utils.preprocess(f"{input_folder}/train/{row['clip_change']}",
+        in_root = input_voicevox_folder if row['synthesizer'] == "voicevox" else input_change_folder
+        audio_utils.preprocess(f"{in_root}/train/{row['clip_change']}",
                                f"{output_folder}/train/{row['clip_change']}", row["synthesizer"] == "common_voice")
         progress.update(1)
 
     # val
     for index, row in df_val.iterrows():
-        audio_utils.preprocess(f"{input_folder}/val/{row['clip_change']}",
+        in_root = input_voicevox_folder if row['synthesizer'] == "voicevox" else input_change_folder
+        audio_utils.preprocess(f"{in_root}/val/{row['clip_change']}",
                                f"{output_folder}/val/{row['clip_change']}", row["synthesizer"] == "common_voice")
         progress.update(1)
 
@@ -334,10 +337,11 @@ def compile_vits(path_train: str, path_val: str, ckpt: int):
             output += f"{clip_path}|{transcript}\n"
 
             # copy clip file and rename
-            if syn == "common_voice" or syn == "win":
-                shutil.copyfile(f"{clip_src_root}/{set_type}/{clip_fname}", f"{clip_dest_root}/{set_type}/{clip_dataset_name}")
-            elif syn == "voicevox":
-                shutil.copyfile(f"{clip_src_voicevox_root}/{set_type}/{clip_fname}", f"{clip_dest_root}/{set_type}/{clip_dataset_name}")
+            # if syn == "common_voice" or syn == "win":
+            #     shutil.copyfile(f"{clip_src_root}/{set_type}/{clip_fname}", f"{clip_dest_root}/{set_type}/{clip_dataset_name}")
+            # elif syn == "voicevox":
+            #     shutil.copyfile(f"{clip_src_voicevox_root}/{set_type}/{clip_fname}", f"{clip_dest_root}/{set_type}/{clip_dataset_name}")
+            shutil.copyfile(f"{clip_src_root}/{set_type}/{clip_fname}", f"{clip_dest_root}/{set_type}/{clip_dataset_name}")
             progress.update(1)
 
         progress.close()
@@ -377,7 +381,7 @@ if __name__ == "__main__":
 
     # resample audio
     # resample_voice_clip(path_dataset_train, path_dataset_val)
-
+    #
     # fix_dataset_id(path_dataset_train, path_dataset_val)
     compile_vits(path_dataset_train, path_dataset_val, ckpt)
 
