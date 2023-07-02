@@ -16,11 +16,13 @@ venv
 *.pth
 *.mp3
 *.wav
+*.gz
+*.tar
+*.zip
 .idea
 dataset_raw
 Strategy.md
 colab.ipynb
-common_voice
 dataset
 dataset_raw/change
 dataset_raw/essential
