@@ -249,17 +249,35 @@ def create_dataset():
     append_voicevox_supplement(df_train, df_val, ckpt)
 
     # update ids
-    df_train["id"] = df_train.index + 1
-    df_val["id"] = df_val.index + 1
+    df_train["id"] = df_train.index
+    df_val["id"] = df_val.index
 
     output_folder = f"dataset/ckpt_{ckpt}"
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
     # save master file
-    df_train.to_csv(f"{output_folder}/dataset_train.tsv", sep="\t", index=False)
-    df_val.to_csv(f"{output_folder}/dataset_val.tsv", sep="\t", index=False)
+    path_train = f"{output_folder}/dataset_train.tsv"
+    path_val = f"{output_folder}/dataset_val.tsv"
 
+    if os.path.exists(path_train):
+        print(path_train, "is already there, clip_change will be lost if you overwrite")
+    else:
+        df_train.to_csv(path_train, sep="\t", index=False)
+
+    if os.path.exists(path_val):
+        print(path_val, "is already there, clip_change will be lost if you overwrite")
+    else:
+        df_val.to_csv(path_val, sep="\t", index=False)
+
+def fix_dataset_id(path_train: str, path_val: str):
+    df_train = pd.read_table(path_train)
+    df_val = pd.read_table(path_val)
+    df_train["id"] = df_train.index
+    df_val["id"] = df_val.index
+    df_train.to_csv(path_train, sep="\t", index=False)
+    df_val.to_csv(path_val, sep="\t", index=False)
+    pass
 
 def resample_voice_clip(path_train: str, path_val: str):
     df_train = pd.read_table(path_train)
@@ -344,7 +362,7 @@ def compile_vits(path_train: str, path_val: str, ckpt: int):
 
 if __name__ == "__main__":
     ckpt = 0
-    create_dataset()
+    # create_dataset()
 
     # gen win narrator clips
     input_folder = f"dataset/ckpt_{ckpt}"
@@ -360,6 +378,7 @@ if __name__ == "__main__":
     # resample audio
     # resample_voice_clip(path_dataset_train, path_dataset_val)
 
-    compile_vits(f"{input_folder}/dataset_train.tsv", f"{input_folder}/dataset_val.tsv", ckpt)
+    # fix_dataset_id(path_dataset_train, path_dataset_val)
+    compile_vits(path_dataset_train, path_dataset_val, ckpt)
 
     pass
