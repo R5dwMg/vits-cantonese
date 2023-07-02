@@ -6,8 +6,9 @@ from text.japanese import japanese_to_romaji_with_accent, japanese_to_ipa, japan
 # from text.english import english_to_lazy_ipa, english_to_ipa2, english_to_lazy_ipa2
 # from text.thai import num_to_thai, latin_to_thai
 # from text.shanghainese import shanghainese_to_ipa
-from text.cantonese import cantonese_to_ipa
+# from text.cantonese import cantonese_to_ipa
 # from text.ngu_dialect import ngu_dialect_to_ipa
+from text.cantonese_zh_hk import cantonese_to_ipa
 
 
 def japanese_cleaners(text):
@@ -117,8 +118,9 @@ def chinese_dialect_cleaners(text):
     #               lambda x: japanese_to_ipa3(x.group(1)).replace('Q', 'ʔ')+' ', text)
     # text = re.sub(r'\[SH\](.*?)\[SH\]', lambda x: shanghainese_to_ipa(x.group(1)).replace('1', '˥˧').replace('5',
     #               '˧˧˦').replace('6', '˩˩˧').replace('7', '˥').replace('8', '˩˨').replace('ᴀ', 'ɐ').replace('ᴇ', 'e')+' ', text)
-    text = re.sub(r'\[GD\](.*?)\[GD\]',
-                  lambda x: cantonese_to_ipa(x.group(1))+' ', text)
+    text = cantonese_to_ipa(text)
+    # text = re.sub(r'\[GD\](.*?)\[GD\]',
+    #               lambda x: cantonese_to_ipa(x.group(1))+' ', text)
     # text = re.sub(r'\[EN\](.*?)\[EN\]',
     #               lambda x: english_to_lazy_ipa2(x.group(1))+' ', text)
     # text = re.sub(r'\[([A-Z]{2})\](.*?)\[\1\]', lambda x: ngu_dialect_to_ipa(x.group(2), x.group(
