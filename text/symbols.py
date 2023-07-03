@@ -70,7 +70,6 @@ _letters = 'abdfghiklmnopstuvyzøŋȵɑɔɕəɤɦɪɿʑʔʰ̩̃ᴀᴇ15678 '
 
 # zh_hk
 import json
-import tools
 with open("models/dataset_ckpt_0/config.json") as f:
     conf = json.loads(f.read())
 
