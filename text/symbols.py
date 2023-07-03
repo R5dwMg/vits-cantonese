@@ -63,10 +63,20 @@ _letters = 'abdfghiklmnopstuvyzøŋȵɑɔɕəɤɦɪɿʑʔʰ̩̃ᴀᴇ15678 '
 '''
 
 # chinese_dialect_cleaners
+# _pad        = '_'
+# _punctuation = ',.!?~…─'
+# _letters = '#Nabdefghijklmnoprstuvwxyzæçøŋœȵɐɑɒɓɔɕɗɘəɚɛɜɣɤɦɪɭɯɵɷɸɻɾɿʂʅʊʋʌʏʑʔʦʮʰʷˀː˥˦˧˨˩̥̩̃̚ᴀᴇ↑↓∅ⱼ '
+
+
+# zh_hk
+import json
+import tools
+with open("models/dataset_ckpt_0/config.json") as f:
+    conf = json.loads(f.read())
+
 _pad        = '_'
 _punctuation = ',.!?~…─'
-_letters = '#Nabdefghijklmnoprstuvwxyzæçøŋœȵɐɑɒɓɔɕɗɘəɚɛɜɣɤɦɪɭɯɵɷɸɻɾɿʂʅʊʋʌʏʑʔʦʮʰʷˀː˥˦˧˨˩̥̩̃̚ᴀᴇ↑↓∅ⱼ '
-
+_letters = "".join(conf["symbols"])
 
 # Export all symbols:
 symbols = [_pad] + list(_punctuation) + list(_letters)

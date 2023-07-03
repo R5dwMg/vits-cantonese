@@ -23,6 +23,7 @@ venv
 dataset_raw
 Strategy.md
 colab.ipynb
+models
 dataset
 dataset_raw/change
 dataset_raw/essential
